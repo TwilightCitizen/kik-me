@@ -8,7 +8,7 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("bg-body.gif");
+  background-image: url("/bg-body.gif");
 }
 
 #app {
@@ -54,5 +54,5 @@ input {
 }
 
 #savePassword.allowSubmit {
-  background-image: url("bg-submit.gif");
+  background-image: url("/bg-submit.gif");
 }
