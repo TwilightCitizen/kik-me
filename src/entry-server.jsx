@@ -13,8 +13,30 @@ export default createHandler(() => (
           {assets}
         </head>
 
-        <body>
-          <div id="app">{children}</div>
+        <body
+          style={{
+            display: "flex",
+            "flex-direction": "column",
+            "justify-content": "center",
+            width: "100vw",
+            height: "100vh",
+            "background-image": "url('/bg-body.gif')"
+          }}
+        >
+          <div 
+            id="app"
+
+            style={{
+              display: "flex",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              width: "100vw",
+              height: "100vh"
+            }}
+          >
+            {children}
+          </div>
           {scripts}
         </body>
       </html>

@@ -1,46 +1,57 @@
-import { createSignal } from "solid-js"
+import { createSignal, Show } from "solid-js"
+import { useNavigate } from "@solidjs/router";
+import Main from "~/components/Main";
+import Title from "~/components/Title";
+import Logo from "~/components/Logo";
+import PassInput from "~/components/PassInput";
+import ValidationLabel from "~/components/ValidationLabel";
 
 export default function Home() {
-  const [currentPassword, setCurrentPassword] = createSignal("");
+  const [oldPassword, setOldPassword] = createSignal("");
   const [newPassword, setNewPassword] = createSignal("");
-  const [confirmPassword, setConfirmPassword] = createSignal("");
+  const navigate = useNavigate();
   const onInput = (f, e) => f(e.currentTarget.value);
-  const noPasswordIsBlank = () => ![currentPassword(), newPassword(), confirmPassword()].includes("")
-  const newAndConfirmMatch = () => newPassword() === confirmPassword();
-  const allowSubmit = () => noPasswordIsBlank() && newAndConfirmMatch();
-  const onClick = () => console.log(currentPassword(), newPassword());
+  const noPasswordIsBlank = () => ![oldPassword(), newPassword()].includes("");
+  const oldAndNewDiffer = () => oldPassword() !== newPassword();
+  const newPasswordLengthOk = () => newPassword().length >= 8;
+  const allowSubmit = () => noPasswordIsBlank() && oldAndNewDiffer() && newPasswordLengthOk();
+
+  const onClick = () => {
+    console.log(oldPassword());
+    navigate("/500", { replace: true });
+  };
 
   return (
-    <main>
-      <div><img src="logo.png" /></div>
-      <h1>Reset Password</h1>
+    <Main>
+      <Logo/>
+      <Title>Reset Password</Title>
       <p>Enter the current password for the account associated with b*******r@hotmail.com.</p>
 
-      <input 
-        type="text" 
-        name="currentPassword" 
+      <PassInput 
         placeholder="Current Password..."
-        value={currentPassword()}
-        on:input={e => onInput(setCurrentPassword, e)}
+        value={oldPassword()}
+        onInput={e => onInput(setOldPassword, e)}
       />
 
-      <p>Enter the new password and password confirmation. Both the new password and password confirmation must match.</p>
+      <p>Enter the new password.</p>
 
-      <input 
-        type="text" 
-        name="newPassowrd" 
+      <PassInput 
         placeholder="New Password..."
         value={newPassword()}
-        on:input={e => onInput(setNewPassword, e)}
+        onInput={e => onInput(setNewPassword, e)}
       />
 
-      <input 
-        type="text" 
-        name="newConfirm" 
-        placeholder="Confirm Password..."
-        value={confirmPassword()}
-        on:input={e => onInput(setConfirmPassword, e)}
-      />
+      <Show when={noPasswordIsBlank()}>
+        <ValidationLabel 
+          isValid={oldAndNewDiffer()}
+          text="The new password cannot be the same as the current password."
+        />
+
+        <ValidationLabel 
+          isValid={newPasswordLengthOk()}
+          text="The new password must be at least 8 characters long."
+        />
+      </Show>
 
       <input 
         type="button" 
@@ -50,7 +61,21 @@ export default function Home() {
         disabled={!allowSubmit()}
         classList={{allowSubmit: allowSubmit()}}
         on:click={onClick}
+
+        style={{
+          "font-weight": "bold",
+          "font-size": "26pt",
+          "color": "#ffffff",
+          "background-color": "#c3c3c3",
+          "height": "55px",
+          "border": "none",
+          "border-radius": "0.125in",
+          
+          ...(allowSubmit() ? {
+            "background-image": "url('/bg-submit.gif')"
+          } : {})
+        }}
       />
-    </main>
+    </Main>
   );
 }
