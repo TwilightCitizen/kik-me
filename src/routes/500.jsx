@@ -8,7 +8,8 @@ export default function Home() {
       <Logo/>
       <Title>Internal Server Error</Title>
       <p>Oops. This is taking longer than usual.</p>
-      <p>A temporary problem is preventing the completion of your request. We're on it! Please try again later.</p>
+      <p>A temporary problem is preventing the completion of your request. We're on it!</p>
+      <p>Please try again later.</p>
     </Main>
   );
 }

@@ -9,5 +9,5 @@ export default function Title(props) {
         >
           {props.children}
         </h1>
-    )
+    );
 }

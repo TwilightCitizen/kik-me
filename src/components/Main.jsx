@@ -15,5 +15,5 @@ export default function Main(props) {
     >
       {props.children}
     </main>
-  )
+  );
 }
