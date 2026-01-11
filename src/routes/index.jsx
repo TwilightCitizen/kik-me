@@ -9,10 +9,15 @@ import Screen from "~/components/Screen";
 import Spinner from "~/components/Spinner";
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  if (import.meta.env.VITE_EXPIRED === "true") {
+    navigate("/expired");
+  }
+
   const [oldPassword, setOldPassword] = createSignal("");
   const [newPassword, setNewPassword] = createSignal("");
   const [showScreen, setShowScreen] = createSignal(false);
-  const navigate = useNavigate();
   const onInput = (f, e) => f(e.currentTarget.value);
   const noPasswordIsBlank = () => ![oldPassword(), newPassword()].includes("");
   const oldAndNewDiffer = () => oldPassword() !== newPassword();

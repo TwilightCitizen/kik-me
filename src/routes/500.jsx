@@ -2,7 +2,7 @@ import Main from "~/components/Main";
 import Title from "~/components/Title";
 import Logo from "~/components/Logo";
 
-export default function Home() {
+export default function ServerError() {
   return (
     <Main>
       <Logo/>
