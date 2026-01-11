@@ -1,6 +1,6 @@
-export default function Logo() {
+export default function Logo(props) {
     return (
-      <div>
+      <div style={{ ...props.style }}>
         <img src="logo.png" />
       </div>
     );

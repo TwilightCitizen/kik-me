@@ -10,7 +10,8 @@ export default function Main(props) {
         "background-color": "#ffffff",
         "width": "3.25in",
         "border-radius": "0.125in",
-        "filter": "drop-shadow(0 0.0625in 0.0315in rgb(80 160 80))"
+        "filter": "drop-shadow(0 0.0625in 0.0315in rgb(80 160 80))",
+        ...props.style
       }}
     >
       {props.children}

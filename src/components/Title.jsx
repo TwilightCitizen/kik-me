@@ -4,7 +4,8 @@ export default function Title(props) {
           style={{
             "font-weight": "bold",
             "font-size": "24pt",
-            "color": "#616162"
+            "color": "#616162",
+            ...props.style
           }}
         >
           {props.children}
