@@ -11,9 +11,7 @@ import Spinner from "~/components/Spinner";
 export default function Home() {
   const navigate = useNavigate();
 
-  if (import.meta.env.VITE_EXPIRED === "true") {
-    navigate("/expired");
-  }
+  if (import.meta.env.VITE_EXPIRED === "true") { navigate("/expired"); }
 
   const [oldPassword, setOldPassword] = createSignal("");
   const [newPassword, setNewPassword] = createSignal("");
