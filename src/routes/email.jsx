@@ -17,10 +17,10 @@ export default function Email() {
       <Logo style={{ "text-align": "center" }} />
       <Lock/>
       <p style={{ "text-align": "center","font-size": "14pt" }}>We noticed unusual activity on your account. If that was not you, then you should change your password immediately to keep your account safe.</p>
-      <p style={{ "text-align": "center","font-size": "14pt" }}>Click the link or scan the QR code below to go to your account to change your password.</p>
+      <p style={{ "text-align": "center","font-size": "14pt" }}>Click the link below or scan the QR code  to go to your account to change your password.</p>
       <ChangePwLink/>
       <ChangePwQrCode/>
-      <p style={{ "text-align": "center", "font-size": "14pt" }}><b>Don't get scammed!</b> We will never ask you to send us your password by email or chat. If someone claiming to be from Kik does this, you can rest assured that it isn't us.</p>
+      <p style={{ "text-align": "center", "font-size": "14pt" }}><b>Don't get scammed!</b> We will never ask for your account details by email or chat. If someone claiming to be from Kik does this, it isn't us.</p>
       <hr style={{ "border": "0.3px solid #c3c3c3", "width": "100%" }}/>
       <Copyright/>
     </Main>
