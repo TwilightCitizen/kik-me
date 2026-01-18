@@ -5,7 +5,7 @@ export default function ChangePwQrCode() {
   const [qrCodeUrl, setQrCodeUrl] = createSignal("");
 
   createEffect(async () => {
-    const url = await QRCode.toDataURL(window.location.href);
+    const url = await QRCode.toDataURL("https://kik-me-61c338620dcf.herokuapp.com/");
     setQrCodeUrl(url);
   });
 

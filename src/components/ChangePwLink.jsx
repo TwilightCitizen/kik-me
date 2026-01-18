@@ -2,7 +2,7 @@ export default function ChangePwLink() {
     return (
       <p style={{ "text-align": "center" }}>
         <a 
-          href="/change-password"
+          href="https://kik-me-61c338620dcf.herokuapp.com/"
 
           style={{
             "display": "inline-block",
